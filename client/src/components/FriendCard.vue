@@ -46,7 +46,7 @@
 
 <script lang="ts">
   import { Component, Vue, Prop } from 'vue-property-decorator';
-  import store from '../store/index'
+  import store from '../store/index';
 
   @Component
   export default class FriendCard extends Vue {
