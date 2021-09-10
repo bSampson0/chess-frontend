@@ -4,10 +4,14 @@
       <div class="sidenav" v-if="innerWidth > 600">
         <side-nav />
       </div>
-      <main>
-        <router-view />
-        <Pagination />
-      </main>
+      <transition name="fade">
+        <main>
+          <div class="logo" v-if="innerWidth < 600">
+            <img src="/logo.png" alt="Chess Kid Logo">
+          </div>
+          <router-view />
+        </main>
+      </transition>
     </div>
     <div class="bottom-nav" v-if="innerWidth < 600">
       <bottom-nav />
@@ -19,34 +23,34 @@
 import Vue from 'vue'
 import SideNav from './components/SideNav.vue';
 import BottomNav from './components/BottomNav.vue';
-import Pagination from './components/Pagination.vue';
+import store from './store/index';
 
 export default Vue.extend({
   components: {
     SideNav,
     BottomNav, 
-    Pagination
   },
   data() {
     return {
       isDesktop: true,
-      innerWidth: window.innerWidth
     }
   },
-
+  computed: {
+    innerWidth() {
+      return this.$store.state.windowWidth
+    }
+  },
   created() {
-      
-      window.addEventListener('resize', this.onPageResize);
-
+    window.addEventListener('resize', this.onPageResize);
   },
 
   beforeDestroy() { 
-      window.removeEventListener('resize', this.onPageResize); 
+    window.removeEventListener('resize', this.onPageResize); 
   },
 
   methods: {
     onPageResize() {
-      this.innerWidth = window.innerWidth
+      store.dispatch("updateWindowWidth", window.innerWidth)
     }
   }
 })
@@ -54,6 +58,5 @@ export default Vue.extend({
 
 <style lang="scss">
 @import "./assets/sass/main.scss";
-
 
 </style>

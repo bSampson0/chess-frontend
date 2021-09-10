@@ -7,4 +7,5 @@ router.get('/api/get-friends', (req, res) => {
   res.json(friends);
 });
 
+
 module.exports = router;

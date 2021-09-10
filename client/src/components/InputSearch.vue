@@ -15,18 +15,18 @@
 </template>
 
 <script lang="ts">
-export default {
-  data() {
-    return {
-      input: '',
-    }
-  },
-  computed: {
-    filteredFriendList() {
-      return this.$store.state.friends.filter((friend) => {
-        return (friend.firstName.toLowerCase().includes(this.input.toLowerCase()) || friend.lastName.toLowerCase().includes(this.input.toLowerCase()))
-      })
-    }
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class InputSearch extends Vue {
+  input: string = ''
+
+ 
+  get filteredFriendList() {
+    return this.$store.state.friends.filter((friend: { firstName: string; lastName: string }) => {
+      return (friend.firstName.toLowerCase().includes(this.input.toLowerCase()) || friend.lastName.toLowerCase().includes(this.input.toLowerCase()))
+    })
+
   }
 }
 </script>

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
+import Friend from "../views/Friend.vue";
 
 Vue.use(VueRouter);
 
@@ -10,6 +11,11 @@ const routes: Array<RouteConfig> = [
     name: "Home",
     component: Home,
   },
+  {
+    path: '/friend/:id',
+    name: 'Friend',
+    component: Friend,
+  }
 ];
 
 const router = new VueRouter({

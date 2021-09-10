@@ -1,4 +1,3 @@
-import { ThreeSixtyTwoTone } from "@material-ui/icons";
 import axios from "axios";
 import Vue from "vue";
 import Vuex from "vuex";
@@ -12,6 +11,7 @@ export default new Vuex.Store({
     currentFriend: {},
     pageSize: 10,
     currentPage: 0,
+    windowWidth: window.innerWidth
   },
   mutations: {
     SET_FRIENDS(state, val) {
@@ -22,6 +22,12 @@ export default new Vuex.Store({
     },
     SET_VISIBLE(state, value) {
       state.visibleFriends = value
+    },
+    SET_WINDOW_WIDTH(state, value) {
+      state.windowWidth = value
+    },
+    SET_CURRENT_FRIEND(state, value) {
+      state.currentFriend = value
     }
   },
   actions: {
@@ -46,6 +52,13 @@ export default new Vuex.Store({
     updatePage({commit}, payload) {
       commit("SET_PAGE", payload)
       this.dispatch('updateVisibleFriends')
+    },
+    updateWindowWidth({commit}, payload) {
+      commit("SET_WINDOW_WIDTH", payload)
+    },
+    updateCurrentFriend({commit}, payload) {
+      const friend = this.state.friends[payload - 1]
+      commit("SET_CURRENT_FRIEND", friend)
     }
   },
   modules: {},

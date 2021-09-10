@@ -1,13 +1,13 @@
 <template>
   <div class="card">
     <div class="card__avatar">
-      <a :href="id">
+      <a :href="`friend/${id}`">
         <img :src="avatar" alt="Friend avatar" class="avatar-img">
       </a>
     </div>
     <div class="card__text-box">
       <div class="text-box__title">
-        <a :href="id">{{ fullName }}</a>
+        <a :href="`friend/${id}`">{{ fullName }}</a>
       </div>
       <span class="text-box__bday">
         <strong>Birthday: </strong>{{ birthdate }},
@@ -19,7 +19,7 @@
         {{ bio }}
       </div>
     </div>
-    <div class="card__actions">
+    <div class="card__actions" v-if="windowWidth > 600">
       <div class="card__icon" @click="hide = !hide">
         <img src="../assets/icons/dropdown-arrow-white.svg" alt="dropdown icon" class="dropdown-icon" :class="{ flip: !hide }">
       </div>
@@ -29,6 +29,7 @@
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
+  import store from '../store/index'
 
   @Component
   export default class FriendsCard extends Vue {
@@ -46,13 +47,17 @@
     get fullName(): string {
       return this.firstName+ ' '+ this.lastName
     }
-    get birthdate() {
+    get birthdate(): string {
       let date = new Date(parseInt(this.birthday)),
         day = date.getDate(),
         month = date.getMonth(),
         year = date.getFullYear()
       let formattedBirthday = `${month}/${day}/${year}`
       return formattedBirthday
+    }
+
+    get windowWidth(): number {
+      return store.state.windowWidth
     }
 
   }
@@ -79,8 +84,13 @@ a {
   }
 
   &__avatar .avatar-img {
-    height: 50px;
+    height: 4rem;
   }
+
+  &__text-box {
+  color: #cdddc4;
+  letter-spacing: .7px;
+}
 
   &__main {
     margin-right: 10%;
@@ -93,7 +103,6 @@ a {
   }
 
 }
-
 
 .text-box__title {
   font-size: 18px;

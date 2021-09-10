@@ -58,7 +58,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background: rgba(0,0,0,.1);
+  background: #588F3C;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 
   &__item {
     flex: 1;

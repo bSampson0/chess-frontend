@@ -4,7 +4,7 @@ $color-grey-dark: #777;
 $color-yellow-dark: #ffe205;
 $color-white: #fff;
 $font-heading: 'Luckiest Guy', cursive;
-$font-primary: 'Trebuchet MS', sans-serif;
+$font-primary: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
 
 *,
 *::after,
@@ -45,4 +45,10 @@ body {
 main {
   flex: 4;
   margin-left: 2rem;
+  padding-bottom: 8rem;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 2rem;
 }
