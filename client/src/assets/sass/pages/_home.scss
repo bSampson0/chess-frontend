@@ -1,0 +1,57 @@
+/*
+* home view style
+*/
+
+.friends-text {
+    font-family: $font-heading;
+    padding: 2rem;
+    font-size: 3.5rem;
+    letter-spacing: 1.1px;
+  }
+  
+  .search {
+    display: flex;
+    border: none;
+    outline: none;
+    position: relative;
+    border-radius: 1.5rem;
+    background: $color-grey-background;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+  
+    &__icon {
+      cursor: pointer;
+    }
+    
+    &__input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 1.5rem;
+      background: transparent;
+      margin-left: 2rem;
+      letter-spacing: 1.1px;
+      color: #fff;
+      z-index: 2;
+    }
+    
+    &__input:focus+.search__label,
+    &__input:valid+.search__label {
+      top: -1.8rem;
+      font-size: 1.2rem;
+    }
+    
+    
+    &__label {
+      opacity: 0.5;
+      position: absolute;
+      top: 1.7rem;
+      left: 6rem;
+      transition: all 0.2s ease;
+      font-size: 1.5rem;
+      color: #f8f8f8;
+      z-index: 1;
+    }
+  }

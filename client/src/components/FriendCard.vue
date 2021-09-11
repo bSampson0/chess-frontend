@@ -30,17 +30,15 @@
         </div>
       </div>
       <div class="actions">
-      <div class="previous">
-        <a class="btn" :href="id - 1" v-if="id > 1">Previous Friend</a>
-      </div>
-      <div class="go-back">
-        <a class="btn" href="/">View All Friends</a>
-      </div>
-      <div class="next">
-        <a class="btn" :href="id + 1" v-if="id < totalFriends">Next Friend</a>
-      </div>
+        <div class="previous">
+          <a class="btn btn-rounded" :href="id - 1" v-if="id > 1">&#60;</a>
+        </div>
+        <div class="next">
+          <a class="btn btn-rounded" :href="id + 1" v-if="id < totalFriends">></a>
+        </div>
     </div>
     </div>
+    <a href="/" class="btn btn-primary">Go Back</a>
   </div>
 </template>
 
@@ -82,71 +80,6 @@
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  background: rgba(0,0,0,.1);
-  border-radius: 15px;
-  
-  &__banner {
-    border-radius: inherit;
-    background: #333;
-    padding: 2rem;
-  }
-  
-  &__body {
-    padding: 2rem;
-  }
-}
-
-.top {
-  margin-bottom: 10px;
-}
-
-.avatar img {
-  height: 50px;
-}
-
-.lucky-font {
-  font-family: 'Luckiest Guy', cursive;
-  font-display: 1px;
-  color: #ffe205;
-}
-
-.name {
-  font-size: 3rem;
-}
-
-.actions {
-  display: flex;
-  justify-content: center;
-  padding: 2rem 0rem;
-  border-radius: 1rem;
-  color: #fff;
-
-}
-
-.btn {
-  border: 1px solid;
-  margin: 2px;
-  padding: 5px 10px;
-  text-decoration: none;
-  transition: all .2s;
-  border-radius: 5px;
-  text-overflow: inherit;
-}
-
-.btn:hover {
-  color: #333;
-  background: #fff;
-}
-
+@import "../assets/sass/components/friend-card";
 
 </style>

@@ -1,0 +1,52 @@
+@import "../abstracts/variables";
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: $color-grey-background;
+  border-radius: 15px;
+  margin-bottom: 3rem;
+  
+  &__banner {
+    border-radius: inherit;
+    background: #333;
+    padding: 2rem;
+  }
+  
+  &__body {
+    padding: 2rem;
+  }
+}
+
+.top {
+  margin-bottom: 10px;
+}
+
+.avatar img {
+  height: 50px;
+}
+
+.lucky-font {
+  font-family: $font-heading;
+  font-display: 1px;
+  color: $color-yellow-dark;
+}
+
+.name {
+  font-size: 3rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2rem;
+  border-radius: 1rem;
+  color: #fff;
+
+}

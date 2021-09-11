@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
-    <div class="card__avatar">
+  <div class="drop-card">
+    <div class="drop-card__avatar">
       <a :href="`friend/${id}`">
         <img :src="avatar" alt="Friend avatar" class="avatar-img">
       </a>
     </div>
-    <div class="card__text-box">
+    <div class="drop-card__text-box">
       <div class="text-box__title">
         <a :href="`friend/${id}`">{{ fullName }}</a>
       </div>
@@ -15,12 +15,12 @@
       <span class="text-box__games-played">
         <strong>games: </strong>{{ gamesCount }}
       </span>
-      <div class="card__main" v-if="!hide">
+      <div class="drop-card__main" v-if="!hide">
         {{ bio }}
       </div>
     </div>
-    <div class="card__actions" v-if="windowWidth > 600">
-      <div class="card__icon" @click="hide = !hide">
+    <div class="drop-card__actions" v-if="windowWidth > 600">
+      <div class="drop-card__icon" @click="hide = !hide">
         <img src="../assets/icons/dropdown-arrow-white.svg" alt="dropdown icon" class="dropdown-icon" :class="{ flip: !hide }">
       </div>
     </div>
@@ -65,63 +65,5 @@
 </script>
 
 <style lang="scss" scoped>
-a {
-  color: #ffe205;
-  text-decoration: none;
-}
 
-.card {
-  display: flex;
-  flex-direction: row;
-  padding: 30px 15px;
-  background: rgba(0,0,0,.1);
-  border-radius: 15px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-
-  &__avatar {
-    margin-right: 15px;
-  }
-
-  &__avatar .avatar-img {
-    height: 4rem;
-  }
-
-  &__text-box {
-  color: #cdddc4;
-  letter-spacing: .7px;
-}
-
-  &__main {
-    margin-right: 10%;
-    margin-top: 10px;
-    width: 100%;
-  }
-  
-  &__actions {
-    margin-left: auto;
-  }
-
-}
-
-.text-box__title {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.hide {
-  display: none;
-}
-
-.flip {
-  transform: rotate(180deg);
-}
-
-.dropdown-icon {
-  height: 10px;
-}
-
-.dropdown-icon:hover {
-  cursor: pointer;
-}
 </style>

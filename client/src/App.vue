@@ -58,5 +58,7 @@ export default Vue.extend({
 
 <style lang="scss">
 @import "./assets/sass/main.scss";
-
+body {
+  min-height: 100vh;
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="nav">
-        <a v-for="(item, i) in menuItems" :key="i" :href="item.url" class="nav__item">
+    <div class="nav-bottom">
+        <a v-for="(item, i) in menuItems" :key="i" :href="item.url" class="nav-bottom__item">
           <img :src="require(`@/assets/icons/${item.icon}`)" alt="Navigation menu icons for Chesskids">
         </a>
     </div>
@@ -54,7 +54,7 @@
 </script>
 
 <style lang="scss" scoped>
-.nav {
+.nav-bottom {
   display: flex;
   flex-direction: row;
   justify-content: space-around;

@@ -1,0 +1,48 @@
+a {
+    color: $color-yellow-dark;
+    text-decoration: none;
+  }
+  .drop-card {
+    display: flex;
+    flex-direction: row;
+    padding: 30px 15px;
+    background: $color-grey-background;
+    border-radius: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    &__avatar {
+      margin-right: 15px;
+    }
+    &__avatar .avatar-img {
+      height: 4rem;
+    }
+    &__text-box {
+    color: #cdddc4;
+    letter-spacing: .7px;
+  }
+    &__main {
+      margin-right: 10%;
+      margin-top: 10px;
+      width: 100%;
+    }
+    
+    &__actions {
+      margin-left: auto;
+    }
+  }
+  .text-box__title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .hide {
+    display: none;
+  }
+  .flip {
+    transform: rotate(180deg);
+  }
+  .dropdown-icon {
+    height: 10px;
+  }
+  .dropdown-icon:hover {
+    cursor: pointer;
+  }
